@@ -14,6 +14,8 @@ olhos.forEach(olho => {
             olho.textContent = "👁";
         }
 
+
+        
     });
 
 });
