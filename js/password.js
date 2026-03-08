@@ -1,5 +1,3 @@
-<script>
-
 const olhos = document.querySelectorAll(".olho");
 
 olhos.forEach(olho => {
@@ -19,5 +17,3 @@ olhos.forEach(olho => {
     });
 
 });
-
-</script>

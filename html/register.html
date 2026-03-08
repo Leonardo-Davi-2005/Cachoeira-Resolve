@@ -4,9 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Cadastro - Prefeitura</title>
-
     <link rel="stylesheet" href="../css/register.css">
-
 </head>
 
 <body>
@@ -22,16 +20,30 @@
         <input type="email" placeholder="Coloque seu e-mail">
 
         <label>Senha</label>
-        <input type="password" placeholder="******">
+        <div class="senha-box">
+            <input type="password" class="senha-input" placeholder="******">
+            <span class="olho">👁</span>
+        </div>
 
         <label>Confirmar senha</label>
-        <input type="password" placeholder="******">
+        <div class="senha-box">
+            <input type="password" class="senha-input" placeholder="******">
+            <span class="olho">👁</span>
+        </div>
 
-        <button class="conta" onclick="window.location.href='../html/login.html'">Já tenho conta</button>   
+        <div class="botoes">
 
-        <button>Entrar</button>
+            <button class="conta" onclick="window.location.href='../html/login.html'">
+                Já tenho conta
+            </button>
+
+            <button class="criar">Criar conta</button>
+
+        </div>
 
     </div>
+
+    <script src="../js/password.js"></script>
 
 </body>
 
