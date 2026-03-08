@@ -26,16 +26,30 @@ body{
     width:200px;
 }
 
-.botoes button{
+.botoes button,
+.botoes a{
     padding:8px 15px;
     border:none;
     cursor:pointer;
     margin-left:10px;
 
-    transition:0.3s;
+    transition: transform 0.3s ease;
+
+    display:inline-block;
 }
 
-.botoes button:hover{
+/* estilo do link entrar */
+
+.botoes a{
+    text-decoration:none;
+    background:#0a5bd8;
+    color:white;
+}
+
+/* animação */
+
+.botoes button:hover,
+.botoes a:hover{
     transform:scale(1.08);
 }
 

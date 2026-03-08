@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Prefeitura de Cachoeira de Minas</title>
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+
+<body>
+
+    <div class="login-container">
+
+        <div class="login-box">
+
+            <div class="logo">
+                <img src="../img/logo_prefeitura.png">
+            </div>
+
+            <form>
+
+                <label>E-mail</label>
+                <input type="email" placeholder="Coloque seu e-mail">
+
+                <label>Senha</label>
+
+                <div class="senha-box">
+
+                    <input type="password" class="senha-input" placeholder="Senha">
+
+                    <span class="olho">👁</span>
+
+                </div>
+
+                <div class="botoes">
+                    <button type="button" class="criar" onclick="window.location.href='register.html'">
+                        Criar conta
+                    </button>
+                    <button type="submit" class="entrar">Entrar</button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        const olhos = document.querySelectorAll(".olho");
+
+        olhos.forEach(olho => {
+
+            olho.addEventListener("click", () => {
+
+                const input = olho.parentElement.querySelector(".senha-input");
+
+                if (input.type === "password") {
+                    input.type = "text";
+                    olho.textContent = "🙈";
+                } else {
+                    input.type = "password";
+                    olho.textContent = "👁";
+                }
+
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>
