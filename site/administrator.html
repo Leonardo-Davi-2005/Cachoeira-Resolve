@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Painel Administrativo</title>
+
+    <link rel="stylesheet" href="../css/adiministrator.css">
+
+</head>
+
+<body>
+
+    <h1>Painel Administrativo</h1>
+
+    <div class="painel">
+
+        <h2>Chamados Abertos</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Categoria</th>
+                    <th>Local</th>
+                    <th>Status</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+
+            <tbody id="listaAbertos"></tbody>
+
+        </table>
+
+
+        <h2>Em Andamento</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Categoria</th>
+                    <th>Local</th>
+                    <th>Status</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+
+            <tbody id="listaAndamento"></tbody>
+
+        </table>
+
+
+        <h2>Resolvidos</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Categoria</th>
+                    <th>Local</th>
+                    <th>Status</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+
+            <tbody id="listaResolvidos"></tbody>
+
+        </table>
+
+
+        <h2>Detalhes</h2>
+
+        <div class="detalhes">
+
+            <img id="detFoto">
+
+            <p><b>Local:</b> <span id="detLocal"></span></p>
+            <p><b>Categoria:</b> <span id="detCategoria"></span></p>
+            <p><b>Descrição:</b> <span id="detDescricao"></span></p>
+
+            <div class="botoes">
+
+                <button onclick="marcarAndamento()">Em andamento</button>
+                <button onclick="marcarResolvido()">Resolvido</button>
+                <button onclick="rejeitar()">Rejeitar</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="./js/adiministrator.js"></script>
+
+</body>
+</html>
