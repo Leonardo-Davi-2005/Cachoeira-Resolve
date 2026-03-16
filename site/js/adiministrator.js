@@ -66,18 +66,26 @@ async function salvar(){
 
 }
 
-function marcarAndamento(){
+async function marcarAndamento(){
+
+    if(selecionado === null) return
 
     chamados[selecionado].status = "Andamento"
-    salvar()
+
+    await salvar()
+
     carregarChamados()
 
 }
 
-function marcarResolvido(){
+async function marcarResolvido(){
+
+    if(selecionado === null) return
 
     chamados[selecionado].status = "Resolvido"
-    salvar()
+
+    await salvar()
+
     carregarChamados()
 
 }
@@ -97,6 +105,7 @@ function rejeitar(){
     carregarChamados()
 
 }
+
 
 window.onload = carregarChamados
 

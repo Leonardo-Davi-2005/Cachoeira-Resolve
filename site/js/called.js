@@ -1,3 +1,14 @@
+let usuarioNome = localStorage.getItem("usuarioNome")
+
+window.onload = function () {
+
+    if (usuarioNome) {
+        document.getElementById("nomeUsuario").innerText = usuarioNome
+    }
+
+}
+
+
 let foto = ""
 let local = ""
 let categoriaSelecionada = ""
@@ -105,16 +116,15 @@ function salvarDescricao() {
 
 }
 
-
 async function enviarChamado() {
-
-    let novoChamado = {
-        categoriaSelecionada: categoriaSelecionada,
-        local: local,
-        descricaoTexto: descricaoTexto,
-        foto: foto,
-        status: "Aberto"
-    }
+let novoChamado = {
+    usuario: usuarioNome,
+    categoriaSelecionada: categoriaSelecionada,
+    local: local,
+    descricaoTexto: descricaoTexto,
+    foto: foto,
+    status: "Aberto"
+}
 
     try {
 

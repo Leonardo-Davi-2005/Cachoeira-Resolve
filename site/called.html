@@ -16,7 +16,7 @@
 
     <div class="container">
 
-        <h2>Olá, Nome!</h2>
+        <h2>Olá, <span id="nomeUsuario"></span></h2>
 
         <div class="card" onclick="abrirFoto()">📷 Envie uma foto</div>
         <div class="card" onclick="abrirMapa()">
@@ -107,6 +107,19 @@
         </div>
     </div>
 
+    <div class="menu-bottom">
+
+        <button class="menu-btn" onclick="abrirMeusChamados()">
+            📄
+            <span>Meus chamados</span>
+        </button>
+
+        <button class="menu-btn" onclick="abrirNovoChamado()">
+            📝
+            <span>Novo chamado</span>
+        </button>
+
+    </div>
 
     <script src="./js/called.js"></script>
 

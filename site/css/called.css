@@ -42,11 +42,27 @@ body {
 }
 
 button {
-    margin-top: 10px;
-    padding: 10px;
+    width: 100%;
+    padding: 18px;
+    margin-top: 20px;
+
+    background: #2ecc71;
+    color: white;
+
     border: none;
-    border-radius: 6px;
+    border-radius: 10px;
+
+    font-size: 18px;
+    font-weight: bold;
+
     cursor: pointer;
+
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #27ae60;
+    transform: scale(1.02);
 }
 
 textarea {
@@ -98,4 +114,31 @@ textarea {
 
     background: #27ae60;
 
+}
+
+.menu-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #1e2a4a;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 12px 0;
+}
+
+.menu-btn {
+    background: none;
+    border: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.menu-btn span {
+    margin-top: 4px;
 }
