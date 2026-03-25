@@ -3,7 +3,7 @@ let selecionado = null
 
 const API = "https://cachoeira-resolve.onrender.com"
 
-async function carregarChamados(){
+async function carregarChamados() {
 
     const resposta = await fetch(`${API}/chamados`)
     chamados = await resposta.json()
@@ -27,15 +27,15 @@ async function carregarChamados(){
         </tr>
         `
 
-        if(c.status === "Aberto"){
+        if (c.status === "Aberto") {
             listaAbertos.innerHTML += linha
         }
 
-        if(c.status === "Andamento"){
+        if (c.status === "Andamento") {
             listaAndamento.innerHTML += linha
         }
 
-        if(c.status === "Resolvido"){
+        if (c.status === "Resolvido") {
             listaResolvidos.innerHTML += linha
         }
 
@@ -43,34 +43,39 @@ async function carregarChamados(){
 
 }
 
-function verDetalhes(i){
+function verDetalhes(i) {
 
     selecionado = i
 
     let c = chamados[i]
 
-    document.getElementById("detFoto").style.display = c.foto ? "block" : "none"
+    if (c.foto) {
+        document.getElementById("detFoto").src = c.foto
+        document.getElementById("detFoto").style.display = "block"
+    } else {
+        document.getElementById("detFoto").style.display = "none"
+    }
     document.getElementById("detLocal").innerText = c.local
     document.getElementById("detCategoria").innerText = c.categoriaSelecionada
     document.getElementById("detDescricao").innerText = c.descricaoTexto
 
 }
 
-async function salvar(){
+async function salvar() {
 
-    await fetch(`${API}/salvar`,{
-        method:"POST",
-        headers:{
-            "Content-Type":"application/json"
+    await fetch(`${API}/salvar`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
         },
         body: JSON.stringify(chamados)
     })
 
 }
 
-async function marcarAndamento(){
+async function marcarAndamento() {
 
-    if(selecionado === null) return
+    if (selecionado === null) return
 
     chamados[selecionado].status = "Andamento"
 
@@ -80,9 +85,9 @@ async function marcarAndamento(){
 
 }
 
-async function marcarResolvido(){
+async function marcarResolvido() {
 
-    if(selecionado === null) return
+    if (selecionado === null) return
 
     chamados[selecionado].status = "Resolvido"
 
@@ -92,9 +97,9 @@ async function marcarResolvido(){
 
 }
 
-async function rejeitar(){
+async function rejeitar() {
 
-    if(selecionado === null) return
+    if (selecionado === null) return
 
     chamados.splice(selecionado, 1)
 

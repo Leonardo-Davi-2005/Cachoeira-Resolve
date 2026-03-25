@@ -143,7 +143,6 @@ async function enviarChamado() {
         }, 2000)
 
         console.log(await resposta.text())
-        alert("Chamado enviado!")
 
     } catch (erro) {
 
@@ -162,6 +161,7 @@ function mostrarNovo() {
 function mostrarMeus() {
     document.getElementById("areaNovo").style.display = "none"
     document.getElementById("areaMeus").style.display = "block"
+    carregarMeusChamados()
 }
 
 async function carregarMeusChamados() {
