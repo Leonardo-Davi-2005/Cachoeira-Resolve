@@ -1,9 +1,11 @@
 let chamados = []
 let selecionado = null
 
+const API = "https://cachoeira-resolve.onrender.com"
+
 async function carregarChamados(){
 
-    const resposta = await fetch("http://127.0.0.1:3000/chamados")
+    const resposta = await fetch(`${API}/chamados`)
     chamados = await resposta.json()
 
     let listaAbertos = document.getElementById("listaAbertos")
@@ -20,7 +22,7 @@ async function carregarChamados(){
         <tr onclick="verDetalhes(${i})">
             <td>${c.categoriaSelecionada}</td>
             <td>${c.local}</td>
-            <td>${c.status}</td>
+            <td><span class="status ${c.status}">${c.status}</span></td>
             <td>Ver</td>
         </tr>
         `
@@ -56,7 +58,7 @@ function verDetalhes(i){
 
 async function salvar(){
 
-    await fetch("http://127.0.0.1:3000/salvar",{
+    await fetch(`${API}/salvar`,{
         method:"POST",
         headers:{
             "Content-Type":"application/json"
@@ -90,22 +92,16 @@ async function marcarResolvido(){
 
 }
 
-function rejeitar(){
+async function rejeitar(){
+
+    if(selecionado === null) return
 
     chamados.splice(selecionado, 1)
 
-    fetch("http://localhost:3000/salvar",{
-        method:"POST",
-        headers:{
-            "Content-Type":"application/json"
-        },
-        body: JSON.stringify(chamados)
-    })
+    await salvar()
 
     carregarChamados()
 
 }
 
-
 window.onload = carregarChamados
-

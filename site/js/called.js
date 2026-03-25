@@ -128,7 +128,7 @@ let novoChamado = {
 
     try {
 
-        const resposta = await fetch("http://localhost:3000/chamados", {
+        const resposta = await fetch("https://cachoeira-resolve.onrender.com/chamados", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
