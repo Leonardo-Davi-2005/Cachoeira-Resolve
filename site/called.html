@@ -107,22 +107,26 @@
         </div>
     </div>
 
-    <div class="menu-bottom">
-
-        <button class="menu-btn" onclick="abrirMeusChamados()">
-            📄
-            <span>Meus chamados</span>
-        </button>
-
-        <button class="menu-btn" onclick="abrirNovoChamado()">
-            📝
-            <span>Novo chamado</span>
-        </button>
-
+    <div class="tabs">
+        <button onclick="mostrarNovo()">Novo Chamado</button>
+        <button onclick="mostrarMeus()">Meus Chamados</button>
     </div>
+
+    <div id="areaMeus" style="display:none">
+        <h3>Meus Chamados</h3>
+        <div id="meusChamados"></div>
+    </div>
+
 
     <script src="./js/called.js"></script>
 
 </body>
+
+<div id="popupSucesso" class="popup">
+    <div class="popup-content">
+        <h3>✅ Solicitação enviada!</h3>
+        <p>Obrigado pelo envio do chamado.</p>
+    </div>
+</div>
 
 </html>

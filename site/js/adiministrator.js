@@ -49,7 +49,7 @@ function verDetalhes(i){
 
     let c = chamados[i]
 
-    document.getElementById("detFoto").src = c.foto
+    document.getElementById("detFoto").style.display = c.foto ? "block" : "none"
     document.getElementById("detLocal").innerText = c.local
     document.getElementById("detCategoria").innerText = c.categoriaSelecionada
     document.getElementById("detDescricao").innerText = c.descricaoTexto

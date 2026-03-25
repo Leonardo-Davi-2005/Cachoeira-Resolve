@@ -117,14 +117,14 @@ function salvarDescricao() {
 }
 
 async function enviarChamado() {
-let novoChamado = {
-    usuario: usuarioNome,
-    categoriaSelecionada: categoriaSelecionada,
-    local: local,
-    descricaoTexto: descricaoTexto,
-    foto: foto,
-    status: "Aberto"
-}
+    let novoChamado = {
+        usuario: usuarioNome,
+        categoriaSelecionada: categoriaSelecionada,
+        local: local,
+        descricaoTexto: descricaoTexto,
+        foto: foto,
+        status: "Aberto"
+    }
 
     try {
 
@@ -136,6 +136,12 @@ let novoChamado = {
             body: JSON.stringify(novoChamado)
         })
 
+        document.getElementById("popupSucesso").style.display = "flex"
+
+        setTimeout(() => {
+            document.getElementById("popupSucesso").style.display = "none"
+        }, 2000)
+
         console.log(await resposta.text())
         alert("Chamado enviado!")
 
@@ -145,5 +151,41 @@ let novoChamado = {
         alert("Servidor não conectado")
 
     }
+
+}
+
+function mostrarNovo() {
+    document.getElementById("areaNovo").style.display = "block"
+    document.getElementById("areaMeus").style.display = "none"
+}
+
+function mostrarMeus() {
+    document.getElementById("areaNovo").style.display = "none"
+    document.getElementById("areaMeus").style.display = "block"
+}
+
+async function carregarMeusChamados() {
+
+    const res = await fetch(`${API}/chamados`)
+    const lista = await res.json()
+
+    let div = document.getElementById("meusChamados")
+
+    if (lista.length === 0) {
+        div.innerHTML = "Nenhum chamado ainda"
+        return
+    }
+
+    div.innerHTML = ""
+
+    lista.forEach(c => {
+        div.innerHTML += `
+            <div class="card">
+                <p><b>${c.categoriaSelecionada}</b></p>
+                <p>${c.local}</p>
+                <p>Status: ${c.status}</p>
+            </div>
+        `
+    })
 
 }
