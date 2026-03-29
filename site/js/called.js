@@ -1,18 +1,37 @@
-let usuarioNome = localStorage.getItem("usuarioNome")
-
-window.onload = function () {
-
-    if (usuarioNome) {
-        document.getElementById("nomeUsuario").innerText = usuarioNome
-    }
-
-}
-
+let usuarioNome = localStorage.getItem("usuarioNome") || "Usuário"
 
 let foto = ""
 let local = ""
 let categoriaSelecionada = ""
 let descricaoTexto = ""
+
+window.onload = function () {
+
+    document.getElementById("nomeUsuario").innerText = usuarioNome
+
+    let input = document.getElementById("fotoInput")
+
+    if (input) {
+        input.addEventListener("change", function () {
+
+            let file = this.files[0]
+
+            if (!file) return
+
+            let reader = new FileReader()
+
+            reader.onload = function () {
+                foto = reader.result
+                let img = document.getElementById("previewFoto")
+                img.src = foto
+                img.style.display = "block"
+            }
+
+            reader.readAsDataURL(file)
+        })
+    }
+
+}
 
 function abrirFoto() {
     document.getElementById("fotoModal").style.display = "flex"
@@ -32,29 +51,8 @@ function abrirDescricao() {
 }
 
 function fechar() {
-    document.querySelectorAll(".modal").forEach(m => {
-        m.style.display = "none"
-    })
+    document.querySelectorAll(".modal").forEach(m => m.style.display = "none")
 }
-
-document.getElementById("fotoInput").addEventListener("change", function () {
-
-    let file = this.files[0]
-
-    let reader = new FileReader()
-
-    reader.onload = function () {
-        foto = reader.result
-
-        let img = document.getElementById("previewFoto")
-        img.src = foto
-        img.style.display = "block"
-    }
-
-    reader.readAsDataURL(file)
-
-})
-
 
 let mapa
 let marcador
@@ -63,13 +61,10 @@ function iniciarMapa() {
 
     if (mapa) return
 
-    mapa = L.map('mapa').setView([-22.355, -45.780], 16
+    mapa = L.map('mapa').setView([-22.355, -45.780], 16)
 
-    )
-
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap'
-    }).addTo(mapa)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
+        .addTo(mapa)
 
     mapa.on("click", function (e) {
 
@@ -77,15 +72,12 @@ function iniciarMapa() {
         let lng = e.latlng.lng
 
         fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`)
-            .then(response => response.json())
+            .then(r => r.json())
             .then(data => {
-
                 local = data.address.road || data.display_name
-
-                document.getElementById("local").innerText = local
                 document.getElementById("localTexto").innerText = local
-
             })
+
         if (marcador) mapa.removeLayer(marcador)
 
         marcador = L.marker([lat, lng]).addTo(mapa)
@@ -94,41 +86,32 @@ function iniciarMapa() {
 
 }
 
-
 function categoria(nome) {
-
     categoriaSelecionada = nome
-
     document.getElementById("categoriaTexto").innerText = nome
-
     fechar()
-
 }
 
-
 function salvarDescricao() {
-
     descricaoTexto = document.getElementById("descricao").value
-
     document.getElementById("descricaoTexto").innerText = descricaoTexto
-
     fechar()
-
 }
 
 async function enviarChamado() {
+
     let novoChamado = {
         usuario: usuarioNome,
-        categoriaSelecionada: categoriaSelecionada,
-        local: local,
-        descricaoTexto: descricaoTexto,
-        foto: foto,
+        categoriaSelecionada,
+        local,
+        descricaoTexto,
+        foto,
         status: "Aberto"
     }
 
     try {
 
-        const resposta = await fetch("https://cachoeira-resolve.onrender.com/chamados", {
+        await fetch("https://cachoeira-resolve.onrender.com/chamados", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -136,19 +119,33 @@ async function enviarChamado() {
             body: JSON.stringify(novoChamado)
         })
 
+        // popup
         document.getElementById("popupSucesso").style.display = "flex"
 
         setTimeout(() => {
             document.getElementById("popupSucesso").style.display = "none"
         }, 2000)
 
-        console.log(await resposta.text())
+        // limpar dados
+        categoriaSelecionada = ""
+        local = ""
+        descricaoTexto = ""
+        foto = ""
+
+        // limpar interface COMPLETA
+        document.getElementById("categoriaTexto").innerText = "Nenhuma"
+        document.getElementById("localTexto").innerText = "Nenhuma"
+        document.getElementById("descricaoTexto").innerText = "Nenhuma"
+
+        let img = document.getElementById("previewFoto")
+        img.src = ""
+        img.style.display = "none"
+
+        document.getElementById("descricao").value = ""
+        document.getElementById("fotoInput").value = ""
 
     } catch (erro) {
-
-        console.error("Erro ao enviar:", erro)
-        alert("Servidor não conectado")
-
+        alert("Erro ao enviar")
     }
 
 }
@@ -166,26 +163,42 @@ function mostrarMeus() {
 
 async function carregarMeusChamados() {
 
-    const res = await fetch(`${API}/chamados`)
-    const lista = await res.json()
+    try {
 
-    let div = document.getElementById("meusChamados")
+        const res = await fetch("https://cachoeira-resolve.onrender.com/chamados")
+        const lista = await res.json()
 
-    if (lista.length === 0) {
-        div.innerHTML = "Nenhum chamado ainda"
-        return
+        let meus = lista.filter(c => c.usuario === usuarioNome)
+
+        let div = document.getElementById("meusChamados")
+
+        if (meus.length === 0) {
+            div.innerHTML = "Nenhum chamado ainda"
+            return
+        }
+
+        div.innerHTML = ""
+
+        meus.forEach(c => {
+
+            let cor = "white"
+
+            if (c.status === "Aberto") cor = "orange"
+            if (c.status === "Andamento") cor = "blue"
+            if (c.status === "Resolvido") cor = "green"
+            if (c.status === "Rejeitado") cor = "red"
+
+            div.innerHTML += `
+                <div class="card">
+                    <p><b>${c.categoriaSelecionada}</b></p>
+                    <p>${c.local}</p>
+                    <p style="color:${cor}">Status: ${c.status}</p>
+                </div>
+            `
+        })
+
+    } catch (erro) {
+        console.log("Erro ao carregar chamados")
     }
-
-    div.innerHTML = ""
-
-    lista.forEach(c => {
-        div.innerHTML += `
-            <div class="card">
-                <p><b>${c.categoriaSelecionada}</b></p>
-                <p>${c.local}</p>
-                <p>Status: ${c.status}</p>
-            </div>
-        `
-    })
 
 }

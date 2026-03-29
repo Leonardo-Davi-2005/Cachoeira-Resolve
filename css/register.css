@@ -114,3 +114,48 @@ button:hover{
     cursor:pointer;
     font-size:18px;
 }
+
+/* ===== RESPONSIVO REGISTER ===== */
+@media (max-width: 600px) {
+
+    body{
+        padding: 10px;
+        height: auto;
+    }
+
+    .container{
+        width: 100%;
+        padding: 25px;
+        border-radius: 20px;
+    }
+
+    .logo{
+        width: 180px;
+    }
+
+    label{
+        font-size: 14px;
+    }
+
+    input{
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .botoes{
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    button{
+        width: 100%;
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .olho{
+        right: 10px;
+        font-size: 16px;
+    }
+
+}

@@ -16,117 +16,90 @@
 
     <div class="container">
 
-        <h2>Olá, <span id="nomeUsuario"></span></h2>
+        <div id="areaNovo">
 
-        <div class="card" onclick="abrirFoto()">📷 Envie uma foto</div>
-        <div class="card" onclick="abrirMapa()">
-            📍 Localização: <span id="localTexto">Nenhuma</span>
-        </div>
-        <div class="card" onclick="abrirCategoria()">
-            📂 Categoria: <span id="categoriaTexto">Nenhuma</span>
-        </div>
-        <div class="card" onclick="abrirDescricao()">
-            ✏️ Descrição: <span id="descricaoTexto">Nenhuma</span>
+            <h2>Olá, <span id="nomeUsuario"></span></h2>
+
+            <div class="card" onclick="abrirFoto()">📷 Envie uma foto</div>
+
+            <div class="card" onclick="abrirMapa()">
+                📍 Localização: <span id="localTexto">Nenhuma</span>
+            </div>
+
+            <div class="card" onclick="abrirCategoria()">
+                📂 Categoria: <span id="categoriaTexto">Nenhuma</span>
+            </div>
+
+            <div class="card" onclick="abrirDescricao()">
+                ✏️ Descrição: <span id="descricaoTexto">Nenhuma</span>
+            </div>
+
+            <button onclick="enviarChamado()">Enviar solicitação</button>
+
         </div>
 
-        <button onclick="enviarChamado()">
-            Enviar solicitação
-        </button>
-
-        <div id="listaChamados"></div>
+        <div id="areaMeus" style="display:none">
+            <h3>Meus Chamados</h3>
+            <div id="meusChamados"></div>
+        </div>
 
     </div>
 
+    <!-- BOTÕES EMBAIXO -->
+    <div class="menu-bottom">
+        <button class="menu-btn" onclick="mostrarNovo()">📄<span>Novo</span></button>
+        <button class="menu-btn" onclick="mostrarMeus()">📋<span>Meus</span></button>
+    </div>
 
-    <!-- FOTO -->
+    <!-- MODAIS -->
+
     <div class="modal" id="fotoModal">
         <div class="modal-content">
             <h3>Enviar foto</h3>
-
             <input type="file" id="fotoInput" accept="image/*">
-
-            <img id="previewFoto" style="width:100%;margin-top:10px;border-radius:10px;display:none;">
-
+            <img id="previewFoto" style="width:100%;display:none;">
             <button onclick="fechar()">Fechar</button>
         </div>
     </div>
 
-
-    <!-- LOCALIZAÇÃO -->
     <div class="modal" id="mapaModal">
-
         <div class="modal-content">
-
-            <h3>Selecionar localização</h3>
-
-            <div id="mapa" style="height:300px;border-radius:10px;"></div>
-
+            <h3>Localização</h3>
+            <div id="mapa" style="height:300px;"></div>
             <p id="local"></p>
-
             <button onclick="fechar()">Confirmar</button>
-
         </div>
-
     </div>
 
-
-    <!-- CATEGORIA -->
     <div class="modal" id="categoriaModal">
         <div class="modal-content">
-
-            <h3>Escolha uma categoria</h3>
-
             <button onclick="categoria('Buraco na rua')">Buraco na rua</button>
-
             <button onclick="categoria('Iluminação quebrada')">Iluminação quebrada</button>
-
             <button onclick="categoria('Lixo acumulado')">Lixo acumulado</button>
-
             <button onclick="categoria('Esgoto')">Esgoto</button>
-
-            <button onclick="categoria('Outro problema')">Outro problema</button>
-
+            <button onclick="categoria('Outro')">Outro</button>
             <button onclick="fechar()">Fechar</button>
-
         </div>
     </div>
 
-
-    <!-- DESCRIÇÃO -->
     <div class="modal" id="descricaoModal">
         <div class="modal-content">
-
-            <h3>Descrição do problema</h3>
-
-            <textarea id="descricao" placeholder="Descreva o problema"></textarea>
-
+            <textarea id="descricao"></textarea>
             <button onclick="salvarDescricao()">Salvar</button>
-
             <button onclick="fechar()">Fechar</button>
-
         </div>
     </div>
 
-    <div class="tabs">
-        <button onclick="mostrarNovo()">Novo Chamado</button>
-        <button onclick="mostrarMeus()">Meus Chamados</button>
+    <!-- POPUP -->
+    <div id="popupSucesso" class="popup">
+        <div class="popup-content">
+            <h3>✅ Solicitação enviada!</h3>
+            <p>Obrigado pelo envio do chamado.</p>
+        </div>
     </div>
-
-    <div id="areaMeus" style="display:none">
-        <h3>Meus Chamados</h3>
-        <div id="meusChamados"></div>
-    </div>
-
 
     <script src="./js/called.js"></script>
 
 </body>
-
-<div id="popupSucesso" class="popup">
-    <div class="popup-content">
-        <h3>✅ Solicitação enviada!</h3>
-        <p>Obrigado pelo envio do chamado.</p>
-    </div>
-</div>
 
 </html>

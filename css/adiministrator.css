@@ -138,3 +138,54 @@ th:nth-child(4), td:nth-child(4){
 .Aberto { background: orange; }
 .Andamento { background: blue; }
 .Resolvido { background: green; }
+
+/* ===== RESPONSIVO ADMIN ===== */
+@media (max-width: 600px) {
+
+    h1 {
+        font-size: 18px;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .painel {
+        padding: 10px;
+    }
+
+    /* tabela vira scroll horizontal */
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+
+    /* imagem menor */
+    #detFoto {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    /* detalhes mais compactos */
+    .detalhes {
+        padding: 15px;
+    }
+
+    /* botões maiores e mais fáceis de clicar */
+    .botoes {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .botoes button {
+        width: 100%;
+        padding: 12px;
+        font-size: 14px;
+    }
+
+}

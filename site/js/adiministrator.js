@@ -41,6 +41,15 @@ async function carregarChamados() {
 
     })
 
+    if (chamados.length === 0) {
+        document.getElementById("detFoto").src = ""
+        document.getElementById("detLocal").innerText = ""
+        document.getElementById("detCategoria").innerText = ""
+        document.getElementById("detDescricao").innerText = ""
+
+        selecionado = null
+    }
+
 }
 
 function verDetalhes(i) {
@@ -103,10 +112,23 @@ async function rejeitar() {
 
     chamados.splice(selecionado, 1)
 
-    await salvar()
+    await fetch("https://cachoeira-resolve.onrender.com/salvar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(chamados)
+    })
+
+    selecionado = null
+
+    // LIMPA TELA
+    document.getElementById("detFoto").src = ""
+    document.getElementById("detLocal").innerText = ""
+    document.getElementById("detCategoria").innerText = ""
+    document.getElementById("detDescricao").innerText = ""
 
     carregarChamados()
-
 }
 
 window.onload = carregarChamados

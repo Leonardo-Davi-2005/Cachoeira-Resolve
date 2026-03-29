@@ -157,23 +157,20 @@ textarea {
 }
 
 .popup-content {
-    background: white;
+    background: #2ecc71;
+    color: white;
+
     padding: 30px;
     border-radius: 15px;
+
     text-align: center;
+
     font-size: 18px;
-}
+    font-weight: bold;
 
-@keyframes aparecer {
-    from {
-        transform: scale(0.8);
-        opacity: 0
-    }
-
-    to {
-        transform: scale(1);
-        opacity: 1
-    }
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .tabs button {
@@ -187,4 +184,103 @@ textarea {
 
 .tabs button:hover {
     background: #444;
+}
+
+.menu-bottom {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #1e2a4a;
+    display: flex;
+    height: 70px;
+}
+
+.menu-btn {
+    flex: 1;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.menu-btn span {
+    font-size: 14px;
+}
+
+#areasMeus {
+    padding-bottom: 100px;
+}
+
+.container {
+    padding-bottom: 100px;
+}
+
+/* ===== RESPONSIVO CALLED ===== */
+@media (max-width: 600px) {
+
+    body{
+        font-size: 14px;
+    }
+
+    .container{
+        padding: 15px;
+    }
+
+    h2{
+        font-size: 18px;
+    }
+
+    /* CARDS */
+    .card{
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    /* BOTÃO ENVIAR */
+    button{
+        padding: 14px;
+        font-size: 16px;
+    }
+
+    /* MODAL */
+    .modal-content{
+        width: 90%;
+    }
+
+    textarea{
+        height: 70px;
+        font-size: 14px;
+    }
+
+    /* MENU DE BAIXO */
+    .menu-bottom{
+        height: 65px;
+    }
+
+    .menu-btn{
+        font-size: 16px;
+    }
+
+    .menu-btn span{
+        font-size: 12px;
+    }
+
+    /* MEUS CHAMADOS */
+    #meusChamados .card{
+        font-size: 13px;
+    }
+
+    /* POPUP */
+    .popup-content{
+        width: 85%;
+        font-size: 16px;
+        padding: 20px;
+    }
+
 }

@@ -184,3 +184,83 @@ body{
         transform:translateY(0);
     }
 }
+
+/* ===== RESPONSIVO HOME ===== */
+@media (max-width: 600px) {
+
+    /* TOPO */
+    .topo{
+        flex-direction: column;
+        padding: 10px;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .logo img{
+        width: 150px;
+    }
+
+    .botoes{
+        display: flex;
+        gap: 10px;
+    }
+
+    .botoes button,
+    .botoes a{
+        margin: 0;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    /* BANNER */
+    .banner{
+        height: 220px;
+        background-position: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .banner-texto{
+        margin: 0;
+        padding: 10px;
+    }
+
+    .banner-texto h1{
+        font-size: 22px;
+    }
+
+    .banner-texto p{
+        font-size: 14px;
+    }
+
+    /* REPORTAR */
+    .reportar{
+        margin: 20px;
+    }
+
+    .explicacao{
+        max-width: 100%;
+        font-size: 14px;
+    }
+
+    /* CARDS */
+    .cards{
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .card{
+        width: 90%;
+    }
+
+    /* RODAPÉ */
+    .rodape{
+        padding: 20px;
+    }
+
+    .rodape p{
+        font-size: 12px;
+    }
+
+}
