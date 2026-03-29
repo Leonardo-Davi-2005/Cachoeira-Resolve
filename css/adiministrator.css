@@ -1,6 +1,11 @@
-body {
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: Arial;
+}
+
+body {
     background: #f4f6fb;
 }
 
@@ -22,7 +27,9 @@ table {
     width: 100%;
     border-collapse: collapse;
     background: white;
-    margin-bottom: 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 25px;
 }
 
 th {
@@ -42,6 +49,7 @@ td {
     padding: 5px 10px;
     border-radius: 10px;
     color: white;
+    font-size: 12px;
 }
 
 .Aberto { background: orange; }
@@ -55,8 +63,10 @@ td {
     border-radius: 10px;
 }
 
+/* IMAGEM */
 #detFoto {
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
     border-radius: 10px;
     margin-bottom: 10px;
 }
@@ -65,28 +75,31 @@ td {
 .botoes {
     display: flex;
     gap: 10px;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 .botoes button {
     flex: 1;
-    padding: 10px;
+    padding: 12px;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     color: white;
     cursor: pointer;
+    font-weight: bold;
 }
 
+/* CORES */
 .botoes button:nth-child(1) { background: #3498db; }
 .botoes button:nth-child(2) { background: #2ecc71; }
 .botoes button:nth-child(3) { background: #e74c3c; }
 
+/* HOVER */
+.botoes button:hover {
+    opacity: 0.9;
+}
+
 /* ===== RESPONSIVO ===== */
 @media (max-width: 768px){
-
-    h1 {
-        font-size: 20px;
-    }
 
     .painel {
         padding: 10px;
@@ -101,10 +114,6 @@ td {
     th, td {
         font-size: 12px;
         padding: 8px;
-    }
-
-    #detFoto {
-        width: 100%;
     }
 
     .botoes {
