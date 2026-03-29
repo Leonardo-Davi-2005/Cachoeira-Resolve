@@ -139,53 +139,39 @@ th:nth-child(4), td:nth-child(4){
 .Andamento { background: blue; }
 .Resolvido { background: green; }
 
-/* ===== RESPONSIVO ADMIN ===== */
-@media (max-width: 600px) {
+@media (max-width: 768px){
 
-    h1 {
-        font-size: 18px;
-        text-align: center;
-        padding: 15px;
+    h1{
+        font-size:22px;
+        text-align:center;
     }
 
-    .painel {
-        padding: 10px;
+    .painel{
+        padding:10px;
     }
 
-    /* tabela vira scroll horizontal */
-    table {
-        display: block;
-        overflow-x: auto;
-        white-space: nowrap;
-        font-size: 12px;
+    table{
+        display:block;
+        overflow-x:auto;
+        white-space:nowrap;
     }
 
-    th, td {
-        padding: 8px;
+    th, td{
+        font-size:12px;
+        padding:8px;
     }
 
-    /* imagem menor */
-    #detFoto {
-        width: 100%;
-        max-width: 250px;
+    .detalhes{
+        padding:15px;
     }
 
-    /* detalhes mais compactos */
-    .detalhes {
-        padding: 15px;
+    #detFoto{
+        width:100%;
     }
 
-    /* botões maiores e mais fáceis de clicar */
-    .botoes {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .botoes button {
-        width: 100%;
-        padding: 12px;
-        font-size: 14px;
+    .botoes button{
+        width:100%;
+        margin-top:10px;
     }
 
 }

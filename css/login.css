@@ -137,52 +137,28 @@ button:hover{
     font-size:18px;
 }
 
-/* ===== RESPONSIVO LOGIN ===== */
-@media (max-width: 600px) {
+@media (max-width: 768px){
 
-    body{
-        padding: 10px;
-        height: auto;
-    }
-
-    /* caixa de login */
     .login-box{
-        width: 100%;
-        padding: 25px;
-        border-radius: 20px;
+        width:90%;
+        padding:25px;
     }
 
-    /* logo menor */
     .logo img{
-        width: 180px;
+        width:200px;
     }
 
-    /* inputs */
     input{
-        padding: 10px;
-        font-size: 14px;
-    }
-
-    label{
-        font-size: 14px;
-    }
-
-    /* botoes */
-    .botoes{
-        flex-direction: column;
-        gap: 10px;
+        font-size:16px;
     }
 
     button{
-        width: 100%;
-        padding: 12px;
-        font-size: 14px;
+        width:100%;
     }
 
-    /* olho senha */
-    .olho{
-        right: 10px;
-        font-size: 16px;
+    .botoes{
+        flex-direction:column;
+        gap:10px;
     }
 
 }

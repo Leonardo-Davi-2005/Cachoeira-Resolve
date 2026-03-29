@@ -185,82 +185,50 @@ body{
     }
 }
 
-/* ===== RESPONSIVO HOME ===== */
-@media (max-width: 600px) {
+/* RESPONSIVO CELULAR */
+@media (max-width: 768px){
 
-    /* TOPO */
     .topo{
         flex-direction: column;
-        padding: 10px;
-        gap: 10px;
-        text-align: center;
+        gap:10px;
+        padding:15px;
+        text-align:center;
     }
 
     .logo img{
-        width: 150px;
+        width:150px;
     }
 
-    .botoes{
-        display: flex;
-        gap: 10px;
-    }
-
-    .botoes button,
-    .botoes a{
-        margin: 0;
-        padding: 10px;
-        font-size: 14px;
-    }
-
-    /* BANNER */
     .banner{
-        height: 220px;
-        background-position: center;
-        justify-content: center;
-        text-align: center;
+        height:220px;
+        background-position:center;
     }
 
     .banner-texto{
-        margin: 0;
-        padding: 10px;
+        margin-left:20px;
+        margin-right:20px;
     }
 
     .banner-texto h1{
-        font-size: 22px;
+        font-size:26px;
     }
 
-    .banner-texto p{
-        font-size: 14px;
-    }
-
-    /* REPORTAR */
     .reportar{
-        margin: 20px;
+        margin:20px;
     }
 
-    .explicacao{
-        max-width: 100%;
-        font-size: 14px;
-    }
-
-    /* CARDS */
     .cards{
         flex-direction: column;
-        align-items: center;
-        gap: 20px;
+        align-items:center;
     }
 
     .card{
-        width: 90%;
+        width:90%;
     }
 
-    /* RODAPÉ */
     .rodape{
-        padding: 20px;
-    }
-
-    .rodape p{
-        font-size: 12px;
+        padding:20px;
+        font-size:12px;
     }
 
 }
