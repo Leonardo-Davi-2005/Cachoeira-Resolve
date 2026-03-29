@@ -64,45 +64,42 @@ td {
     background: #2ecc71;
 }
 
-/* DETALHES AJUSTADO (PC) */
+/* ===== DETALHES PC (ARRUMADO SIMPLES) ===== */
+
 .detalhes {
     background: white;
-    padding: 20px;
+    padding: 15px;
     border-radius: 10px;
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
+
+    display: block; /* volta pro padrão simples */
 }
 
-/* IMAGEM CONTROLADA */
+/* IMAGEM PEQUENA */
 #detFoto {
-    width: 220px;
-    height: auto;
+    width: 180px;
     border-radius: 10px;
-    object-fit: cover;
-}
-
-/* TEXTO DO LADO */
-.info {
-    flex: 1;
-    font-size: 16px;
-    color: #333;
-}
-
-.info p {
     margin-bottom: 10px;
 }
 
-/* BOTÕES NORMAIS */
+/* TEXTO NORMAL */
+#detLocal,
+#detCategoria,
+#detDescricao {
+    font-size: 15px;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+/* BOTÕES NORMAIS (NÃO GIGANTES) */
 .botoes {
     display: flex;
     gap: 10px;
-    margin-top: 15px;
+    margin-top: 10px;
 }
 
 .botoes button {
-    padding: 10px 15px;
-    font-size: 14px;
+    padding: 8px 12px;
+    font-size: 13px;
     border-radius: 6px;
 }
 
