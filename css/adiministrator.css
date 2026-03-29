@@ -1,134 +1,43 @@
 body {
-
     margin: 0;
     font-family: Arial;
     background: #f4f6fb;
-
 }
 
+/* TOPO */
 h1 {
-
     background: #1e2a38;
     color: white;
     padding: 20px;
-
+    text-align: center;
 }
 
+/* CONTAINER */
 .painel {
-
     padding: 20px;
-
 }
 
+/* TABELA */
 table {
-
     width: 100%;
     border-collapse: collapse;
     background: white;
     margin-bottom: 30px;
-
 }
 
 th {
-
     background: #2c3e50;
     color: white;
-    padding: 10px;
-
+    padding: 12px;
 }
 
 td {
-
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-
-}
-
-button {
-
-    padding: 6px 12px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-
-}
-
-button:hover {
-
-    opacity: 0.8;
-
-}
-
-.detalhes {
-
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-
-}
-
-#detFoto {
-
-    width: 300px;
-    border-radius: 10px;
-    margin-bottom: 10px;
-
-}
-
-.botoes button:nth-child(1) {
-
-    background: #3498db;
-    color: white;
-
-}
-
-.botoes button:nth-child(2) {
-
-    background: #2ecc71;
-    color: white;
-
-}
-
-.botoes button:nth-child(3) {
-
-    background: #e74c3c;
-    color: white;
-
-}
-
-table{
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 25px;
-}
-
-th, td{
     padding: 12px;
+    border-bottom: 1px solid #ddd;
     text-align: center;
 }
 
-th{
-    background: #34495e;
-    color: white;
-}
-
-/* largura fixa das colunas */
-th:nth-child(1), td:nth-child(1){
-    width: 30%;
-}
-
-th:nth-child(2), td:nth-child(2){
-    width: 40%;
-}
-
-th:nth-child(3), td:nth-child(3){
-    width: 15%;
-}
-
-th:nth-child(4), td:nth-child(4){
-    width: 15%;
-}
-
+/* STATUS */
 .status {
     padding: 5px 10px;
     border-radius: 10px;
@@ -136,51 +45,70 @@ th:nth-child(4), td:nth-child(4){
 }
 
 .Aberto { background: orange; }
-.Andamento { background: blue; }
-.Resolvido { background: green; }
+.Andamento { background: #3498db; }
+.Resolvido { background: #2ecc71; }
 
+/* DETALHES */
+.detalhes {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#detFoto {
+    width: 300px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* BOTÕES */
+.botoes {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.botoes button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+}
+
+.botoes button:nth-child(1) { background: #3498db; }
+.botoes button:nth-child(2) { background: #2ecc71; }
+.botoes button:nth-child(3) { background: #e74c3c; }
+
+/* ===== RESPONSIVO ===== */
 @media (max-width: 768px){
 
-    body{
-        padding:10px;
+    h1 {
+        font-size: 20px;
     }
 
-    h1{
-        font-size:20px;
-        text-align:center;
+    .painel {
+        padding: 10px;
     }
 
-    .painel{
-        padding:10px;
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
     }
 
-    table{
-        display:block;
-        overflow-x:auto;
-        width:100%;
+    th, td {
+        font-size: 12px;
+        padding: 8px;
     }
 
-    th, td{
-        font-size:12px;
-        padding:8px;
+    #detFoto {
+        width: 100%;
     }
 
-    .detalhes{
-        padding:15px;
-    }
-
-    #detFoto{
-        width:100% !important;
-    }
-
-    .botoes{
-        display:flex;
-        flex-direction:column;
-        gap:10px;
-    }
-
-    .botoes button{
-        width:100%;
+    .botoes {
+        flex-direction: column;
     }
 
 }

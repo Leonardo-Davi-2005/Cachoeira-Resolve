@@ -10,26 +10,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("../img/imagen_fogueira.jpeg");
-    background-size: cover;
-    background-position: center;
+
+    background: url("/img/imagen_fogueira.jpeg") center/cover no-repeat;
 }
 
-body::before{
-    content:"";
-    position:absolute;
-    inset:0;
-
-    background-image: url("../img/imagen_fogueira.jpeg");
-    background-size: 100%; /* diminui a imagem visualmente */
-    background-position:center -1px;
-
-    filter: blur(4px);
-    transform: scale(1.05); /* evita bordas do blur */
-
-    z-index:-1;
-}
-
+/* CONTAINER */
 .container {
     width: 380px;
     padding: 30px;
@@ -44,11 +29,13 @@ body::before{
     text-align: center;
 }
 
+/* LOGO */
 .logo {
-    width: 280px;
+    width: 260px;
     margin-bottom: 20px;
 }
 
+/* LABEL */
 label {
     display: block;
     text-align: left;
@@ -57,6 +44,7 @@ label {
     color: #0a4fb3;
 }
 
+/* INPUT */
 input {
     width: 100%;
     padding: 12px;
@@ -66,77 +54,78 @@ input {
     background: #f2f2f2;
 }
 
-.botoes{
-    display:flex;
-    justify-content:space-between;
-    margin-top:20px;
+/* SENHA */
+.senha-box {
+    position: relative;
 }
 
-button{
-    padding:10px 20px;
-    border:none;
-    border-radius:20px;
-    cursor:pointer;
-    color:white;
-    font-size:15px;
+.senha-input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 20px;
+    border: none;
+    background: #f2f2f2;
 }
 
-.criar{
-    background:#1e73ff;
+.olho {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
 }
 
-.conta{
-    background:#0a5bd8;
+/* BOTÕES */
+.botoes {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
 }
 
-button:hover{
-    transform:scale(1.05);
-    transition:0.3s;
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    color: white;
 }
 
-.senha-box{
-    position:relative;
+.criar {
+    background: #1e73ff;
 }
 
-.senha-input{
-    width:100%;
-    padding:12px;
-    border-radius:20px;
-    border:none;
-    background:#f2f2f2;
+.conta {
+    background: #0a5bd8;
 }
 
-.olho{
-    position:absolute;
-    right:15px;
-    top:50%;
-    transform:translateY(-45%);
-    cursor:pointer;
-    font-size:18px;
+button:hover {
+    transform: scale(1.05);
 }
 
+/* ===== RESPONSIVO ===== */
 @media (max-width: 768px){
 
-    .container{
-        width:90%;
-        padding:20px;
+    body {
+        padding: 10px;
+        height: auto;
     }
 
-    .logo{
-        width:200px;
+    .container {
+        width: 100%;
+        padding: 20px;
     }
 
-    input{
-        font-size:16px;
+    .logo {
+        width: 180px;
     }
 
-    .botoes{
-        flex-direction:column;
-        gap:10px;
+    .botoes {
+        flex-direction: column;
+        gap: 10px;
     }
 
-    button{
-        width:100%;
+    button {
+        width: 100%;
     }
 
 }
