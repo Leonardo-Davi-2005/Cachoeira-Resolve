@@ -65,43 +65,53 @@ td {
 }
 
 
+/* ===== DETALHES PADRÃO FINAL (PC + CELULAR) ===== */
+
 .detalhes {
     background: white;
     padding: 15px;
     border-radius: 10px;
-    width: 320px; /* caixa menor igual antes */
+    max-width: 320px;
 }
 
 /* IMAGEM PEQUENA */
 #detFoto {
-    width: 150px;
+    width: 140px;
     border-radius: 10px;
     display: block;
     margin-bottom: 10px;
 }
 
-/* TEXTO NORMAL */
+/* TEXTOS BONITOS */
 #detLocal,
 #detCategoria,
 #detDescricao {
     font-size: 14px;
     margin-bottom: 6px;
     color: #333;
+    line-height: 1.4;
 }
 
-/* BOTÕES LÁ EMBAIXO */
+/* DESCRIÇÃO NÃO FICAR ZOADA */
+#detDescricao {
+    word-break: break-word;
+}
+
+/* BOTÕES EMBAIXO E PEQUENOS */
 .botoes {
     margin-top: 10px;
     display: flex;
-    gap: 8px;
-    justify-content: flex-start; /* fica no canto esquerdo */
+    gap: 6px;
+    justify-content: flex-start;
 }
 
-/* BOTÕES PEQUENOS */
+/* BOTÕES PEQUENOS (ACABOU O GIGANTE) */
 .botoes button {
-    padding: 6px 10px;
-    font-size: 12px;
+    padding: 5px 8px;
+    font-size: 11px;
     border-radius: 5px;
+    width: auto; /* remove botão gigante */
+    flex: none;
 }
 
 /* CORES */
@@ -145,8 +155,6 @@ td {
         width: 100%;
     }
 
-    .botoes button {
-        width: 100%;
-    }
 
 }
+
