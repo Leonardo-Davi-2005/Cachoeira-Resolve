@@ -52,26 +52,48 @@ td {
     font-size: 12px;
 }
 
-.Aberto { background: orange; }
-.Andamento { background: #3498db; }
-.Resolvido { background: #2ecc71; }
+.Aberto {
+    background: orange;
+}
 
-/* DETALHES */
+.Andamento {
+    background: #3498db;
+}
+
+.Resolvido {
+    background: #2ecc71;
+}
+
+/* DETALHES AJUSTADO (PC) */
 .detalhes {
     background: white;
     padding: 20px;
     border-radius: 10px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
 }
 
-/* IMAGEM */
+/* IMAGEM CONTROLADA */
 #detFoto {
-    width: 100%;
-    max-width: 300px;
+    width: 220px;
+    height: auto;
     border-radius: 10px;
+    object-fit: cover;
+}
+
+/* TEXTO DO LADO */
+.info {
+    flex: 1;
+    font-size: 16px;
+    color: #333;
+}
+
+.info p {
     margin-bottom: 10px;
 }
 
-/* BOTÕES */
+/* BOTÕES NORMAIS */
 .botoes {
     display: flex;
     gap: 10px;
@@ -79,19 +101,23 @@ td {
 }
 
 .botoes button {
-    flex: 1;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    color: white;
-    cursor: pointer;
-    font-weight: bold;
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 6px;
 }
 
 /* CORES */
-.botoes button:nth-child(1) { background: #3498db; }
-.botoes button:nth-child(2) { background: #2ecc71; }
-.botoes button:nth-child(3) { background: #e74c3c; }
+.botoes button:nth-child(1) {
+    background: #3498db;
+}
+
+.botoes button:nth-child(2) {
+    background: #2ecc71;
+}
+
+.botoes button:nth-child(3) {
+    background: #e74c3c;
+}
 
 /* HOVER */
 .botoes button:hover {
@@ -101,23 +127,28 @@ td {
 /* ===== RESPONSIVO ===== */
 @media (max-width: 768px){
 
-    .painel {
-        padding: 10px;
+    .detalhes {
+        flex-direction: column;
+        align-items: center;
     }
 
-    table {
-        display: block;
-        overflow-x: auto;
-        white-space: nowrap;
+    #detFoto {
+        width: 100%;
+        max-width: 250px;
     }
 
-    th, td {
-        font-size: 12px;
-        padding: 8px;
+    .info {
+        text-align: center;
+        font-size: 14px;
     }
 
     .botoes {
         flex-direction: column;
+        width: 100%;
+    }
+
+    .botoes button {
+        width: 100%;
     }
 
 }
