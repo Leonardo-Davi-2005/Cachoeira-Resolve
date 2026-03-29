@@ -141,8 +141,12 @@ th:nth-child(4), td:nth-child(4){
 
 @media (max-width: 768px){
 
+    body{
+        padding:10px;
+    }
+
     h1{
-        font-size:22px;
+        font-size:20px;
         text-align:center;
     }
 
@@ -153,7 +157,7 @@ th:nth-child(4), td:nth-child(4){
     table{
         display:block;
         overflow-x:auto;
-        white-space:nowrap;
+        width:100%;
     }
 
     th, td{
@@ -166,12 +170,17 @@ th:nth-child(4), td:nth-child(4){
     }
 
     #detFoto{
-        width:100%;
+        width:100% !important;
+    }
+
+    .botoes{
+        display:flex;
+        flex-direction:column;
+        gap:10px;
     }
 
     .botoes button{
         width:100%;
-        margin-top:10px;
     }
 
 }

@@ -185,50 +185,50 @@ body{
     }
 }
 
-/* RESPONSIVO CELULAR */
 @media (max-width: 768px){
 
+    *{
+        text-align: center;
+    }
+
     .topo{
-        flex-direction: column;
-        gap:10px;
-        padding:15px;
-        text-align:center;
+        flex-direction: column !important;
+        padding: 10px !important;
     }
 
     .logo img{
-        width:150px;
+        width: 140px !important;
+    }
+
+    .botoes{
+        display:flex;
+        gap:10px;
     }
 
     .banner{
-        height:220px;
-        background-position:center;
+        height: 200px !important;
+        background-position: center !important;
     }
 
     .banner-texto{
-        margin-left:20px;
-        margin-right:20px;
+        margin: 0 15px !important;
     }
 
     .banner-texto h1{
-        font-size:26px;
+        font-size: 22px !important;
     }
 
     .reportar{
-        margin:20px;
+        margin:20px !important;
     }
 
     .cards{
-        flex-direction: column;
-        align-items:center;
+        flex-direction: column !important;
+        align-items:center !important;
     }
 
     .card{
-        width:90%;
-    }
-
-    .rodape{
-        padding:20px;
-        font-size:12px;
+        width: 95% !important;
     }
 
 }
