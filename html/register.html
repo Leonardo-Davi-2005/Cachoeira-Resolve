@@ -14,20 +14,20 @@
         <img src="../img/logo_prefeitura.png" class="logo">
 
         <label>Nome completo</label>
-        <input type="text">
+        <input id="nome" type="text">
 
         <label>E-mail</label>
-        <input type="email" placeholder="Coloque seu e-mail">
+        <input id="email" type="email" placeholder="Coloque seu e-mail">
 
         <label>Senha</label>
         <div class="senha-box">
-            <input type="password" class="senha-input" placeholder="******">
+            <input id="senha" type="password" class="senha-input" placeholder="******">
             <span class="olho">👁</span>
         </div>
 
         <label>Confirmar senha</label>
         <div class="senha-box">
-            <input type="password" class="senha-input" placeholder="******">
+            <input id="confirmarSenha" type="password" class="senha-input" placeholder="******">
             <span class="olho">👁</span>
         </div>
 
@@ -37,13 +37,15 @@
                 Já tenho conta
             </button>
 
-            <button class="criar">Criar conta</button>
+            <button class="criar" onclick="registrar()">Criar conta</button>
+
 
         </div>
 
     </div>
 
     <script src="../js/password.js"></script>
+    <script src="../site/js/register.js"></script>
 
 </body>
 

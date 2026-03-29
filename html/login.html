@@ -20,14 +20,13 @@
             <form>
 
                 <label>E-mail</label>
-                <input type="email" placeholder="Coloque seu e-mail">
+                <input id="email" type="email" placeholder="Coloque seu e-mail">
 
                 <label>Senha</label>
 
                 <div class="senha-box">
 
-                    <input type="password" class="senha-input" placeholder="Senha">
-
+                    <input id="senha" type="password" class="senha-input" placeholder="Senha">
                     <span class="olho">👁</span>
 
                 </div>
@@ -36,7 +35,7 @@
                     <button type="button" class="criar" onclick="window.location.href='register.html'">
                         Criar conta
                     </button>
-                    <button type="submit" class="entrar">Entrar</button>
+                   <button type="button" class="entrar" onclick="entrar()">Entrar</button>
                 </div>
 
             </form>
@@ -46,6 +45,8 @@
     </div>
 
     <script src="../js/password.js"></script>
+    <script src="../site/js/login.js"></script>
+
 
 </body>
 

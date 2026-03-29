@@ -1,8 +1,14 @@
 function entrar(){
 
-    let email = document.getElementById("email").value
-    let senha = document.getElementById("senha").value
+    let email = document.getElementById("email").value.trim()
+    let senha = document.getElementById("senha").value.trim()
 
+    if(!email || !senha){
+        alert("Preencha todos os campos!")
+        return
+    }
+
+    // ADMIN
     if(email === "admin" && senha === "2026"){
         window.location.href = "../site/administrator.html"
         return
