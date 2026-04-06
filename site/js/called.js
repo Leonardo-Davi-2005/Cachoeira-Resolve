@@ -192,13 +192,35 @@ async function carregarMeusChamados() {
                 <div class="card">
                     <p><b>${c.categoriaSelecionada}</b></p>
                     <p>${c.local}</p>
-                    <p style="color:${cor}">Status: ${c.status}</p>
+                    <p style="color:${cor}">Status: ${pegarStatusFormatado(c.status)}</p>
                 </div>
             `
         })
 
     } catch (erro) {
         console.log("Erro ao carregar chamados")
+    }
+
+}
+
+/ ===== FORMATAR STATUS ===== /
+
+function pegarStatusFormatado(status) {
+
+    if (status === "Aberto") {
+        return <span class="status aberto">⏳ Aberto</span>
+    }
+
+    if (status === "Andamento") {
+        return <span class="status andamento">🔧 Em andamento</span>
+    }
+
+    if (status === "Resolvido") {
+        return <span class="status resolvido">✅ Resolvido</span>
+    }
+
+    if (status === "Rejeitado") {
+        return <span class="status rejeitado">❌ Rejeitado</span>
     }
 
 }
