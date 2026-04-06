@@ -137,7 +137,15 @@ window.onload = carregarChamados
 window.addEventListener("load", () => {
 
     setTimeout(() => {
-        document.getElementById("splash").style.display = "none"
-    }, 2500) // tempo (2.5 segundos)
+
+        let splash = document.getElementById("splash")
+
+        splash.classList.add("hide") // fade
+
+        setTimeout(() => {
+            splash.style.display = "none"
+        }, 800) // tempo da animação
+
+    }, 3500) // tempo total na tela (3.5s)
 
 })
