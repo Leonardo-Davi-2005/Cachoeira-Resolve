@@ -278,3 +278,13 @@ document.querySelectorAll(".card").forEach(card => {
     })
 
 })
+
+window.addEventListener("load", () => {
+
+    let loading = document.getElementById("loadingScreen")
+
+    setTimeout(() => {
+        loading.classList.add("hide")
+    }, 1500) // tempo fake (pode aumentar)
+
+})

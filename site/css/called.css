@@ -376,3 +376,48 @@ button {
     transform: translateY(-5px) scale(1.02);
     box-shadow: 0 20px 40px rgba(0,0,0,0.6);
 }
+
+/* ===== LOADING FINAL ===== */
+
+#loadingScreen {
+    position: fixed;
+    inset: 0;
+    background: rgba(10,15,40,0.9);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 9999;
+
+    opacity: 1;
+    transition: 0.6s;
+}
+
+/* loader girando */
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255,255,255,0.2);
+    border-top: 5px solid white;
+    border-radius: 50%;
+    animation: girar 1s linear infinite;
+    margin-bottom: 15px;
+}
+
+@keyframes girar {
+    to { transform: rotate(360deg); }
+}
+
+/* texto */
+#loadingScreen p {
+    color: white;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+/* sumir suave */
+#loadingScreen.hide {
+    opacity: 0;
+    pointer-events: none;
+}
