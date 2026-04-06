@@ -288,3 +288,21 @@ window.addEventListener("load", () => {
     }, 1500) // tempo fake (pode aumentar)
 
 })
+
+document.querySelectorAll("a").forEach(link => {
+
+    link.addEventListener("click", function(e) {
+
+        e.preventDefault()
+
+        let destino = this.href
+
+        document.body.classList.add("fade-out")
+
+        setTimeout(() => {
+            window.location.href = destino
+        }, 400)
+
+    })
+
+})
