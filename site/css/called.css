@@ -285,3 +285,34 @@ textarea {
 
 }
 
+/* TRANSIÇÃO CINEMA */
+
+.fade {
+    animation: sair 0.3s forwards;
+}
+
+.show {
+    animation: entrar 0.4s forwards;
+}
+
+@keyframes sair {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+}
+
+@keyframes entrar {
+    from {
+        opacity: 0;
+        transform: scale(1.05);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

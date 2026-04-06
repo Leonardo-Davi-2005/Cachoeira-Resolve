@@ -151,13 +151,46 @@ async function enviarChamado() {
 }
 
 function mostrarNovo() {
-    document.getElementById("areaNovo").style.display = "block"
-    document.getElementById("areaMeus").style.display = "none"
+
+    let novo = document.getElementById("areaNovo")
+    let meus = document.getElementById("areaMeus")
+
+    meus.classList.add("fade")
+
+    setTimeout(() => {
+        meus.style.display = "none"
+        novo.style.display = "block"
+
+        novo.classList.add("show")
+
+        setTimeout(() => {
+            novo.classList.remove("show")
+            meus.classList.remove("fade")
+        }, 400)
+
+    }, 300)
 }
 
 function mostrarMeus() {
-    document.getElementById("areaNovo").style.display = "none"
-    document.getElementById("areaMeus").style.display = "block"
+
+    let novo = document.getElementById("areaNovo")
+    let meus = document.getElementById("areaMeus")
+
+    novo.classList.add("fade")
+
+    setTimeout(() => {
+        novo.style.display = "none"
+        meus.style.display = "block"
+
+        meus.classList.add("show")
+
+        setTimeout(() => {
+            meus.classList.remove("show")
+            novo.classList.remove("fade")
+        }, 400)
+
+    }, 300)
+
     carregarMeusChamados()
 }
 
