@@ -158,30 +158,3 @@ td {
 
 }
 
-
-/* ===== STATUS BONITOS ===== */
-
-.status {
-    padding: 6px 12px;
-    border-radius: 20px;
-    color: white;
-    font-weight: bold;
-    display: inline-block;
-}
-
-.aberto {
-    background: #e74c3c;
-}
-
-.andamento {
-    background: #f1c40f;
-    color: black;
-}
-
-.resolvido {
-    background: #2ecc71;
-}
-
-.rejeitado {
-    background: #7f8c8d;
-}

@@ -22,7 +22,7 @@ async function carregarChamados() {
         <tr onclick="verDetalhes(${i})">
             <td>${c.categoriaSelecionada}</td>
             <td>${c.local}</td>
-            <td><span class="status ${pegarStatusFormatado(c.status)}">${pegarStatusFormatado(c.status)}</span></td>
+            <td><span class="status ${c.status}">${c.status}</span></td>
             <td>Ver</td>
         </tr>
         `
@@ -131,26 +131,5 @@ async function rejeitar() {
     carregarChamados()
 }
 
-/ ===== FORMATAR STATUS ===== /
-
-function pegarStatusFormatado(status) {
-
-    if (status === "Aberto") {
-        return <span class="status aberto">⏳ Aberto</span>
-    }
-
-    if (status === "Andamento") {
-        return <span class="status andamento">🔧 Em andamento</span>
-    }
-
-    if (status === "Resolvido") {
-        return <span class="status resolvido">✅ Resolvido</span>
-    }
-
-    if (status === "Rejeitado") {
-        return <span class="status rejeitado">❌ Rejeitado</span>
-    }
-
-}
 
 window.onload = carregarChamados
