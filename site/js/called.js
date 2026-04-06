@@ -119,11 +119,22 @@ async function enviarChamado() {
             body: JSON.stringify(novoChamado)
         })
 
+        let btn = document.querySelector("button")
+        btn.innerText = "Enviando..."
+        btn.disabled = true
+
         // popup
         document.getElementById("popupSucesso").style.display = "flex"
 
         setTimeout(() => {
             document.getElementById("popupSucesso").style.display = "none"
+        }, 2000)
+
+        btn.innerText = "Enviado ✔"
+
+        setTimeout(() => {
+            btn.innerText = "Enviar solicitação"
+            btn.disabled = false
         }, 2000)
 
         // limpar dados
@@ -235,4 +246,20 @@ async function carregarMeusChamados() {
     }
 
 }
+
+document.querySelectorAll(".card").forEach(card => {
+
+    card.addEventListener("click", () => {
+
+        // remove de todos
+        document.querySelectorAll(".card").forEach(c => {
+            c.classList.remove("ativo")
+        })
+
+        // adiciona no clicado
+        card.classList.add("ativo")
+
+    })
+
+})
 

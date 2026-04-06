@@ -149,3 +149,24 @@ window.addEventListener("load", () => {
     }, 3500) // tempo total na tela (3.5s)
 
 })
+
+document.querySelectorAll("button").forEach(btn => {
+
+    btn.addEventListener("click", function (e) {
+
+        let circle = document.createElement("span")
+        circle.classList.add("ripple")
+
+        let x = e.clientX - btn.offsetLeft
+        let y = e.clientY - btn.offsetTop
+
+        circle.style.left = x + "px"
+        circle.style.top = y + "px"
+
+        this.appendChild(circle)
+
+        setTimeout(() => circle.remove(), 600)
+
+    })
+
+})
