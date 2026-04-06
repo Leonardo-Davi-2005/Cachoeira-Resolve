@@ -133,3 +133,11 @@ async function rejeitar() {
 
 
 window.onload = carregarChamados
+
+window.addEventListener("load", () => {
+
+    setTimeout(() => {
+        document.getElementById("splash").style.display = "none"
+    }, 2500) // tempo (2.5 segundos)
+
+})
