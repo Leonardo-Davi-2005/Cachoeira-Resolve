@@ -347,3 +347,32 @@ button {
         opacity: 0;
     }
 }
+
+.card {
+    position: relative;
+    overflow: hidden;
+}
+
+/* luz */
+.card::before {
+    content: "";
+    position: absolute;
+    top: var(--y);
+    left: var(--x);
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255,255,255,0.25), transparent 60%);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+.card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
