@@ -8,7 +8,12 @@ async function carregarTodosChamados() {
         let div = document.getElementById("todosChamados")
 
         if (lista.length === 0) {
-            div.innerHTML = "Nenhum problema encontrado"
+            div.innerHTML = `
+    <div style="text-align:center; padding:20px; opacity:0.7;">
+        <h3>📭 Nenhum chamado ainda</h3>
+        <p>Seja o primeiro a reportar um problema na cidade.</p>
+    </div>
+`
             return
         }
 
@@ -39,6 +44,10 @@ async function carregarTodosChamados() {
 
     } catch (erro) {
         console.log("Erro ao carregar")
+    }
+
+    function voltar() {
+        window.history.back()
     }
 
 }
