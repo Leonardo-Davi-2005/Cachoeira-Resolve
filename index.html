@@ -15,15 +15,16 @@
             <img src="img/logo_prefeitura.png">
         </div>
 
+        <a href="./site/painel-cidade.html" class="btn-painel">
+            🌎 Painel da Cidade
+        </a>
+
         <div class="botoes">
             <a href="html/register.html" class="criar">Criar conta</a>
             <a href="html/login.html" class="entrar">Entrar</a>
         </div>
     </header>
 
-    <a href="./site/painel-cidade.html">
-        <button>🌎 Painel da Cidade</button>
-    </a>
 
     <section class="banner">
         <div class="banner-texto">
@@ -36,6 +37,26 @@
             </p>
         </div>
     </section>
+
+    <div id="fade"></div>
+
+    <script>
+        document.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", function (e) {
+
+                e.preventDefault()
+
+                let destino = this.href
+
+                document.getElementById("fade").style.opacity = "1"
+
+                setTimeout(() => {
+                    window.location.href = destino
+                }, 400)
+
+            })
+        })
+    </script>
 
     <section class="reportar">
         <h2>Encontrou um problema na cidade?</h2>
